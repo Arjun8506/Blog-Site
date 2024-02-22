@@ -6,6 +6,8 @@ import userRoutes from "./routes/user.route.js"
 const app = express()
 dotenv.config()
 
+app.use(express.json())
+
 const port = process.env.PORT || 8000
 
 app.get("/", (req, res)=> {
@@ -13,6 +15,7 @@ app.get("/", (req, res)=> {
 })
 
 app.use("/api/auth", userRoutes)
+// app.use("/api/blog", blogRoutes)
 
 app.listen(port, ()=> {
     ConnectToDB()

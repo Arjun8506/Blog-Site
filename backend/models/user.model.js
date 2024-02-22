@@ -18,10 +18,6 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    confirmPassword: {
-        type: String,
-        required: true
-    },
     blogs: [
         {
             type: mongoose.Schema.Types.ObjectId,
