@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "My MERN Blog Website",
   "main": "server",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon backend/server.js"
@@ -14,6 +15,7 @@
   "author": "ARJUN NAGAR",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "mongoose": "^8.1.3"
   }
