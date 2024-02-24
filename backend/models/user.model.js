@@ -18,6 +18,10 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    profilePic: {
+        type: String,
+        required: true
+    },
     blogs: [
         {
             type: mongoose.Schema.Types.ObjectId,
