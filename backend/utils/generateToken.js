@@ -5,7 +5,7 @@ const generateWebTokenAndSetCookie = (userId, res) => {
         expiresIn: '15d'
     })
 
-    res.cookie('cookie', token, {
+    res.cookie('token', token, {
         maxAge: 15*24*60*60*1000 ,
         httpOnly: true,
         secure: true

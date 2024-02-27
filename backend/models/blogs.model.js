@@ -17,7 +17,7 @@ const blogSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "UserModel"
     }
-}, {timestamp: true})
+}, {timestamps: true})
 
 const BlogModel = mongoose.model("Blog", blogSchema)
 

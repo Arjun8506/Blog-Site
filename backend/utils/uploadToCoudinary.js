@@ -2,10 +2,12 @@ import cloudinary from 'cloudinary'
 import fs from 'fs'
 
 cloudinary.v2.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET
+    cloud_name: "dxyt4v9lc",
+    api_key: "183751361925436",
+    api_secret: "Uv_tH27Ci758Fi4sBaw47cQOG2o"
 })
+
+console.log(process.env.CLOUDINARY_API_KEY);
 
 const uploadImageOnCloudinary = async (localFilePath) => {
     try {
@@ -14,7 +16,6 @@ const uploadImageOnCloudinary = async (localFilePath) => {
         const response = await cloudinary.v2.uploader.upload(localFilePath, {
             resource_type: "auto"
         })
-        console.log("URL Of Image", response.url);
         return response
 
     } catch (error) {
