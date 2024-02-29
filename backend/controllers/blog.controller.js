@@ -1,3 +1,4 @@
+import UserModel from "../models/user.model.js";
 import BlogModel from "../models/blogs.model.js";
 import uploadImageOnCloudinary from "../utils/uploadToCoudinary.js"
 
@@ -41,6 +42,16 @@ export const uploadBlog = async (req, res) => {
         if (newBlog) {
             await newBlog.save()
 
+            
+            const user = await UserModel.findById(author)
+            
+            if (!user) {
+                return res.status(500).json({message : "user not found please try again"})
+            }
+            
+            user.blogs.push(newBlog._id)
+            await user.save({validateBeforeSave: false})
+            
             res.status(200).json(newBlog)
         } else {
             return res.status(500).json({error: "Invalid data"})
@@ -191,6 +202,31 @@ export const updatePoster = async (req, res) => {
 
     } catch (error) {
         console.log("error while updateing the poster => ", error.message);
+        return res.status(500).json({message: "Internal Server Error"})
+    }
+}
+
+export const getAllBlogs = async (req, res) => {
+    try {
+
+        const author = req.user._id
+        console.log("User ID from request:", req.user._id);
+        if (!req.user._id) {
+            return res.status(400).json({error : "log in first"})
+        }
+
+        const user = await UserModel.findById(author).populate('blogs')
+
+        if (!user) {
+            return res.status(500).json({error : "unable to get the blogt details"})
+        }
+
+        const blogs = user.blogs || [];
+
+        res.status(200).json({ blogs })
+
+    } catch (error) {
+        console.log("error while getAllBlogs the poster => ", error);
         return res.status(500).json({message: "Internal Server Error"})
     }
 }

@@ -1,7 +1,7 @@
 import express from "express";
 import upload from "../middleware/multer.middleware.js";
 import getLoggedInUser from "../middleware/getLoggedInUser.js";
-import { deleteBlog, updateBlog, updatePoster, uploadBlog } from "../controllers/blog.controller.js";
+import { deleteBlog, getAllBlogs, updateBlog, updatePoster, uploadBlog } from "../controllers/blog.controller.js";
 
 const router = express.Router()
 
@@ -18,5 +18,7 @@ router.post("/updateposter/:id", getLoggedInUser, upload.fields([{
 }]), updatePoster)
 
 router.post("/deleteblog/:id", getLoggedInUser, deleteBlog)
+
+router.get("/allblogs", getLoggedInUser, getAllBlogs)
 
 export default router

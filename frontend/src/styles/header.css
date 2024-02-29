@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    width: 100%;
+    min-height: 15vh;
+    padding: 2vh 4vw;
+    animation: headeranime 0.5 0 infinite alternate;
+    animation-timing-function: ease-in-out;
+    background-color: yellow;
+}
+
+.header .logo {
+    width: 40%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    background-image: linear-gradient(to rignt, rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.199), rgba(0, 0, 0, 0.37));
+}
+
+#videologo {
+    width: 20%;
+    border-radius: 50%;
+    filter: brightness(200%);
+}
+
+.header h1 {
+    font-size: 3.5vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: text-decoration ease-in-out 1s;
+    user-select: none;
+}
+
+.header h1:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

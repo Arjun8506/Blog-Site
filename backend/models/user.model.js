@@ -25,7 +25,8 @@ const userSchema = mongoose.Schema({
     blogs: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Blogs"
+            ref: "BlogModel",
+            required: true
         }
     ],
 
