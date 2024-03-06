@@ -14,7 +14,7 @@ app.use(express.json())
 const port = process.env.PORT || 8000
 
 app.get("/", (req, res)=> {
-    res.status(200).send("Hello World")
+    res.status(200).send("Hello World from backend")
 })
 
 app.use("/api/auth", userRoutes)
